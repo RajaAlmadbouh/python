@@ -171,4 +171,46 @@ else:
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
+'''import math
+pi = math.pi
+
+def area (r):
+     return pi*math.pow(r,2)
+
+def cer (r):
+    return pi*r*2
+
+r = float(input("Enter reduase = "))
+
+while r<=0 : 
+     print("Enter the corect reduase !!!!!")
+     r = float(input("Enter reduase = "))
+
+print(area(r))
+print(cer(r))'''
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+import string
+
+Pass = input("Enter the password : ")
+countLatter = 0
+pal = 0 # (#$%&...)
+Uperr = "QERTYUIOPASDFGHJKLZXCVBNM"
+
+
+for i in Pass : 
+    countLatter +=1
+    if i==string.punctuation:
+        pal+=1
+    
+    
+    
+
+
+
+
 
