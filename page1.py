@@ -196,21 +196,62 @@ print(cer(r))'''
 
 import string
 
-Pass = input("Enter the password : ")
-countLatter = 0
-pal = 0 # (#$%&...)
-Uperr = "QERTYUIOPASDFGHJKLZXCVBNM"
-
-
-for i in Pass : 
-    countLatter +=1
-    if i==string.punctuation:
-        pal+=1
-    
-    
+def Chick_Pass(Pass):
+    countLatter = 0
+    pal = 0 # (#$%&...)
+    Uperr = "QERTYUIOPASDFGHJKLZXCVBNM"
+    numUperr = 0
+    number = "123456789"
+    numNumber = 0
     
 
 
+    for i in Pass : 
+        countLatter +=1
+        if i==string.punctuation:
+            pal+=1
+        if i in Uperr:
+            numUperr += 1
+        if i in number:
+            numNumber += 1
+
+    if countLatter >= 8 and pal > 0 and numUperr > 0 and numNumber > 0 :
+        return("acc")
+    else:
+        return("invalid")
 
 
+
+chicker = True
+while chicker :
+    Pass = input("Enter the password : ")
+    c = Chick_Pass(Pass)
+    if c == "acc" :
+        print(c)
+        chicker = False
+    
+
+
+
+#Chick_Pass(Pass)
+
+    
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''name = "Raja"
+n = name[0]
+a = name[1]
+m = name[3]
+e = name[3]
+
+for i in range(0,4):
+    print(name[i])'''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
