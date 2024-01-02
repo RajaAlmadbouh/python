@@ -194,7 +194,7 @@ print(cer(r))'''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-import string
+'''import string
 
 def Chick_Pass(Pass):
     countLatter = 0
@@ -233,9 +233,51 @@ while chicker :
 
 
 
-#Chick_Pass(Pass)
+#Chick_Pass(Pass)'''
 
     
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+import string
+
+def Chick_Pass(password):
+    countLetters = 0
+    numPunctuations = 0
+    upper_case = "QERTYUIOPASDFGHJKLZXCVBNM"
+    numUpper = 0
+    numbers = "123456789"
+    numNumbers = 0
+
+    for char in password:
+        countLetters += 1
+        if char in string.punctuation:
+            numPunctuations += 1
+        if char in upper_case:
+            numUpper += 1
+        if char in numbers:
+            numNumbers += 1
+
+    if countLetters >= 8 and numPunctuations > 0 and numUpper > 0 and numNumbers > 0:
+        return "acc"
+    '''else:
+        return "invalid"'''
+
+chicker = True
+while chicker:
+    password = input("Enter the password: ")
+    result = Chick_Pass(password)
+    if result == "acc":
+        print(result)
+        chicker = False
+    else:
+        print("invalid")
+
+
 
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -254,4 +296,3 @@ for i in range(0,4):
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
