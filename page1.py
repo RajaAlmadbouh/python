@@ -243,7 +243,7 @@ while chicker :
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 
-import string
+'''import string
 
 def Chick_Pass(password):
     countLetters = 0
@@ -264,8 +264,8 @@ def Chick_Pass(password):
 
     if countLetters >= 8 and numPunctuations > 0 and numUpper > 0 and numNumbers > 0:
         return "acc"
-    '''else:
-        return "invalid"'''
+    #else:
+       # return "invalid"
 
 chicker = True
 while chicker:
@@ -275,7 +275,7 @@ while chicker:
         print(result)
         chicker = False
     else:
-        print("invalid")
+        print("invalid")'''
 
 
 
@@ -296,3 +296,73 @@ for i in range(0,4):
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''age1 = int (input("Enter age 1 = "))
+age2 = int (input("Enter age 2 = "))
+age3 = int (input("Enter age 3 = "))
+
+big = 0
+midd = 0
+smoll = 0
+
+if age1>age2 and age1>age3:
+    big=age1
+    if age2>age3:
+        midd=age2
+        smoll=age3
+    elif age3>age2:
+        midd=age3
+        smoll=age2
+if age2>age1 and age2>age3:
+    big=age2
+    if age1>age3:
+        midd=age1
+        smoll=age3
+    elif age3>age1:
+        midd=age3
+        smoll=age1
+if age3>age1 and age3>age2:
+    big=age3
+    if age1>age2:
+        midd=age1
+        smoll=age2
+    elif age2>age1:
+        midd=age2
+        smoll=age1
+print("bigger = ",big)
+print("modd = ",midd)
+print("smole = ",smoll)'''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''for i in range (1,6):
+    for j in range (1,i+1):
+        print(j,end="")
+    print()'''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''num = int (input("Enter the number = "))
+sum = 0
+
+for i in range (1,num+1):
+    sum += i
+print(f"The Sumation = {sum}")'''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''for i in range(5,0,-1):
+    for j in range(i,0,-1):
+        print(j,end=' ')
+    print()'''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
