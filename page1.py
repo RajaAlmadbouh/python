@@ -366,3 +366,23 @@ print(f"The Sumation = {sum}")'''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+x = ord("a")
+print(x)
+a = chr(65)
+print(a)
+name = "RaJa9*"
+#n = name.upper()
+#print(ord("b")>99)
+
+def Upp(tet):
+    copyTxt = ""
+    for i in tet:
+        if ord(i) >= 97 and ord(i) <= 122:
+            copyTxt += chr(ord(i) - 32)  
+        else:
+            copyTxt += i
+
+    return copyTxt
+
+x = Upp("RaJa")
+print(x)
