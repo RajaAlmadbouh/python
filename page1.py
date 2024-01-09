@@ -366,7 +366,7 @@ print(f"The Sumation = {sum}")'''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-x = ord("a")
+'''x = ord("a")
 print(x)
 a = chr(65)
 print(a)
@@ -388,4 +388,22 @@ x = Upp("RaJa")
 print(x)
 
 var = input("Enter value : ")
-print(var.isidentifier())
+print(var.isidentifier())'''
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+list1 = [5,1.3,"python",[4,8,2.9]]
+print(list1[0])
+print(list1[1])
+print(list1[2])
+print(list1[2][1])#list of character(python)
+print(list1[3])
+print(list1[3][0])
+print(list1[3][1])
+print(list1[3][2])
+print(len(list1))#number of list1 = 4
+print(len(list1[2]))#muber of list1 in index 2 (python) = 6
+print(list1[:3])
