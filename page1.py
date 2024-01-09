@@ -386,3 +386,6 @@ def Upp(tet):
 
 x = Upp("RaJa")
 print(x)
+
+var = input("Enter value : ")
+print(var.isidentifier())
