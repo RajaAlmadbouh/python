@@ -396,6 +396,18 @@ print(var.isidentifier())'''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 list1 = [5,1.3,"python",[4,8,2.9]]
+list2 = [11,7,55,90,0,25]
+list3 = ["r","a","j","a"]
+
+name = "Raja"
+name_list = list(name)#convert form string to list
+
+num = 15
+num_list = list(range(1,num+1))
+
+
+print(name_list)#result = ["R","a","j","a"]
+print(num_list)#result = [1,2,3,...,15]
 print(list1[0])
 print(list1[1])
 print(list1[2])
@@ -405,5 +417,30 @@ print(list1[3][0])
 print(list1[3][1])
 print(list1[3][2])
 print(len(list1))#number of list1 = 4
-print(len(list1[2]))#muber of list1 in index 2 (python) = 6
-print(list1[:3])
+print(len(list1[2]))#numuber of list1 in index 2 (python) = 6
+print(list1[:3])#forword index
+print(list1[:-1])#backword index
+print(list1[-1::-1])#backword index
+#----------bulit in function----------
+print(len(list1))
+print("befor sorted " , list3)
+print("after sorted " , sorted(list3)) #This function does not modify the current value of list
+print(sorted(list2,reverse=False))
+print(sorted(list2,reverse=True))
+print(sorted(list2))
+print(max(list2))
+print(min(list2))
+print(sum(list2))
+#----------methoud function----------
+#help(list) #It gives the user all the methods used in the list
+list4 = [1,"Raja","noor",[1.7,8],False]
+list4.append([4,5])
+list4.append("rend")
+
+#list4.extend([9,0])
+#list4.extend("rend")
+
+list4.insert(1,"Zekoo")
+
+print(list4)
+print(list4.index([1.7,8]))
