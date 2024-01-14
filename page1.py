@@ -636,3 +636,40 @@ convert(s1)'''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+print(30 * "-", "Welcome to FasterTaxi", 30 * "-")
+
+while True:
+    chooseType = input("""You can choose the type of service : 
+                       1- Taxi 
+                       2- Shared transfer
+                       Enter the ID number for the service type : """)
+
+    if chooseType == "1" or chooseType.lower() == "taxi":
+        print("Taxi")
+        captain = [["Toyota Avalon","Raja Almadbouh","80081","0796329390"],["Chevrolet Menlo","Montasr Asmer","17785","0772182104"]]
+        print("Choose the type of car you prefer : ")
+
+        for i in range(0,len(captain)):
+            print(i+1,"- ",captain[i][0])
+
+        while True:
+            chooseCaptain = input("Enter the ID number for the Car type : ")
+            if chooseCaptain == "1":
+                print(captain[0][0])
+            elif chooseCaptain == "2":
+                print(captain[1][0])
+            else:
+                print("Choose wrong. You must enter a valid ID")
+
+
+
+        break
+    elif chooseType == "2" or chooseType.lower() == "shared transfer":
+        print("Shared transfer")
+        break
+    else:
+        print("Invalid input. Please enter 1 for Taxi or 2 for Shared transfer.")
+
+
+
+
