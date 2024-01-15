@@ -636,7 +636,7 @@ convert(s1)'''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-print(30 * "-", "Welcome to FasterTaxi", 30 * "-")
+'''print(30 * "-", "Welcome to FasterTaxi", 30 * "-")
 
 while True:
     chooseType = input("""You can choose the type of service : 
@@ -647,6 +647,7 @@ while True:
     if chooseType == "1" or chooseType.lower() == "taxi":
         print("Taxi")
         captain = [["Toyota Avalon","Raja Almadbouh","80081","0796329390"],["Chevrolet Menlo","Montasr Asmer","17785","0772182104"]]
+        
         print("Choose the type of car you prefer : ")
 
         for i in range(0,len(captain)):
@@ -654,12 +655,18 @@ while True:
 
         while True:
             chooseCaptain = input("Enter the ID number for the Car type : ")
+            
             if chooseCaptain == "1":
-                print("""CarType\t  \tNameCaptain\t  \t    """)
+                print("""CarType\t  \tNameCaptain\t  \tPlateNumber\t  \tNumberCaptain\t  \t""")
+                for i in range(0,len(captain[0])):
+                    print(captain[0][i],end="\t\t")
                 #print(captain[0][0])
                 break
             elif chooseCaptain == "2":
-                print(captain[1][0])
+                print("""CarType\t  \tNameCaptain\t  \tPlateNumber\t  \tNumberCaptain\t  \t""")
+                for i in range(0,len(captain[1])):
+                    print(captain[1][i],end="\t\t")
+                #print(captain[1][0])
                 break
             else:
                 print("Choose wrong. You must enter a valid ID")
@@ -676,3 +683,92 @@ while True:
 
 
 
+'''
+
+
+
+
+print(30 * "-", "Welcome to FasterTaxi", 30 * "-")
+
+while True:
+    chooseType = input("""You can choose the type of service : 
+                       1- Taxi 
+                       2- Shared transfer
+                       Enter the ID number for the service type : """)
+    print()
+
+    if chooseType == "1" or chooseType.lower() == "taxi":
+        print("Taxi")
+        print()
+        captain = [["Toyota Avalon", "Raja Almadbouh", "80081", "0796329390"],
+                   ["Chevrolet Menlo", "Montasr Asmer", "17785", "0772182104"]]
+
+        print("Choose the type of car you prefer : ")
+
+        for i in range(0, len(captain)):
+            print(f"{i + 1}- {captain[i][0]}")
+        
+        print()
+
+        while True:
+            chooseCaptain = input("Enter the ID number for the Car type : ")
+
+            if chooseCaptain == "1" or chooseCaptain == "2":
+                print("{:<15}\t{:<15}\t{:<15}\t{:<15}".format("CarType", "NameCaptain", "PlateNumber", "NumberCaptain"))
+                for i in range(0, len(captain[int(chooseCaptain) - 1])):
+                    print("{:<15}\t".format(captain[int(chooseCaptain) - 1][i]), end="")
+                print()
+                print()
+                print("""Do you want :
+ 1- Open flight
+ 2- trip (repel reply)""")
+                print()
+                priceKilo = 0.2
+                priceTime = 0.05
+                while True:
+                    chooseUser = input ("Enter the ID number what you want : ")
+                    if chooseUser == "1" :
+                        print("Open flight : ")
+                        print ("Price per kilo   = ",priceKilo," JD")
+                        print ("Price per minute = ",priceTime," JD")
+                        print("\n")
+                        while True:
+                            try:
+                                numKilo = float(input("Enter the number of kilometers the user traveled on this trip : "))
+                                numTime = float(input("Enter the number of minutes the user traveled on this trip    : "))
+
+                                if numKilo < 0 or numTime < 0:
+                                    print("Please enter non-negative values for kilometers and minutes.")
+                                    continue  
+
+                                break  
+
+                            except ValueError:
+                                print("Invalid input. Please enter valid numerical values.")
+                        priceTrip = numKilo*priceKilo + numTime*priceTime
+                        print("\n")
+
+                        if priceTrip < 1 :
+                            priceTrip = 1
+                            print("Minimum trips = 1 JD")
+
+                        print("We wish you a happy trip with captain ",captain[int(chooseCaptain) - 1][1])
+                        print("Total price of the trip = ",priceTrip," JD")
+                        break
+                    elif chooseUser == "2":
+                        print("trip (repel reply)")
+                        break
+                    else:
+                        print("Choose wrong. You must enter a valid ID")
+                      
+
+                break
+            else:
+                print("Choose wrong. You must enter a valid ID")
+
+        break
+    elif chooseType == "2" or chooseType.lower() == "shared transfer":
+        print("Shared transfer")
+        break
+    else:
+        print("Invalid input. Please enter 1 for Taxi or 2 for Shared transfer.")
