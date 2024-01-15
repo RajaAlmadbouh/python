@@ -655,9 +655,12 @@ while True:
         while True:
             chooseCaptain = input("Enter the ID number for the Car type : ")
             if chooseCaptain == "1":
-                print(captain[0][0])
+                print("""CarType\t  \tNameCaptain\t  \t    """)
+                #print(captain[0][0])
+                break
             elif chooseCaptain == "2":
                 print(captain[1][0])
+                break
             else:
                 print("Choose wrong. You must enter a valid ID")
 
