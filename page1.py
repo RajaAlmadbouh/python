@@ -530,7 +530,7 @@ print(type(sorted_tuple)) # <class 'tuple'>
 '''----------------------set----------------------'''
 
 
-
+'''
 set1 = {1,2,3,"raja"}
 
 print(set1)
@@ -541,6 +541,7 @@ for i in set1:
 
 # set لا يمكن تعديل على قمية من عناضر  
 # set يمكن اضافه او حذف على 
+# set لا تكرر عناضر المتساوية
     
 set1.add("Rand")
 print(set1) #{1, 2, 3, 'Rand', 'raja'} add elemant in set
@@ -561,22 +562,63 @@ set3.add("333333333")
 print("set1 = ",set1) # {1, 2, 3, '123456', 'S2', 'Rand', 'raja'}
 print("set3 = ",set3) # {'Rand', 1, 2, 3, '333333333', '123456', 'raja', 'S2'}
 
+print(10*"-","set.diference",10*"-")
+
+mark1 = {10,15,10,46,63,98,56,4,4}
+mark2 = {10,33,46,34}
+
+print(mark1.difference(mark2)) # {98, 4, 15, 56, 63} Stored items mark1 not found mark2
+mark2.difference_update(mark1) # We modified mark2 and took different values from mark2
+print(mark2) # {33, 34}
+
+mark1.discard(10) # all element in mark1 without 10
+print(mark1) # {98, 4, 56, 63, 46, 15}
+
+#mark1.intersection(mark2)
+print(mark1.intersection(mark2)) # mark2 و  mark1 الاشياء المشتركه   
+'''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''----------------------dictionary----------------------'''
+
+studant  = {"name" : "Raja" , "Age":18 , "Marks":[50,60,70,80]}
+print(studant["name"]) # Raja
+print(studant["Age"]) # 18
+print(studant["Marks"]) # [50, 60, 70, 80]
+print(studant["Marks"][0]) # 50
+print(studant["Marks"][1]) # 60
+
+studant["city"] = "irbid" # add Iteam in dictionary
+print(studant) # {'name': 'Raja', 'Age': 18, 'Marks': [50, 60, 70, 80], 'city': 'irbid'}
+
+studant["Age"] += 1
+print(studant) # {'name': 'Raja', 'Age': 19, 'Marks': [50, 60, 70, 80], 'city': 'irbid'}
+
+del studant["city"] # Remove Iteam
+print(studant) # {'name': 'Raja', 'Age': 19, 'Marks': [50, 60, 70, 80]}
+
+#studant.popitem() # delete last Item
+
+print(studant.keys()) # dict_keys(['name', 'Age', 'Marks'])
+print(studant.values()) # dict_values(['Raja', 19, [50, 60, 70, 80]])
+print(studant.items()) #dict_items([('name', 'Raja'), ('Age', 19), ('Marks', [50, 60, 70, 80])])
+
+
+
+for i in range(len(studant["Marks"])) : 
+    print(studant["Marks"][i])
 
 
 
 
 
-
-
-
-
-    
 
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
 
 
 
