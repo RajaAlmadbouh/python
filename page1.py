@@ -491,6 +491,97 @@ print(list4.index("Raja"))'''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+'''----------------------tuple----------------------'''
+
+
+'''tuple1 = (1,5,5,4,6,3,2,5,6)
+
+
+print(tuple1.count(5))
+print(tuple1.index(5))
+print(max(tuple1))
+print(len(tuple1))
+print(min(tuple1))
+print(sum(tuple1))
+
+print(tuple1)
+print(sorted(tuple1)) # [1, 2, 3, 4, 5, 5, 5, 6, 6] Arranges the elemant tuple , print tuple convert to list
+
+sorted_tuple = sorted(tuple1)
+print(type(tuple1)) # <class 'tuple'>
+print(type(sorted_tuple)) # <class 'tuple'>
+
+
+
+
+
+
+
+#print(tuple1.index("raja")) #Error ValueError: tuple.index(x): x not in tuple
+#print(tuple1.index(9))
+
+'''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+'''----------------------set----------------------'''
+
+
+
+set1 = {1,2,3,"raja"}
+
+print(set1)
+#print(set1[0]) # Error the set has no index
+
+for i in set1:  
+    print(i) # the set stores elemants randomly
+
+# set لا يمكن تعديل على قمية من عناضر  
+# set يمكن اضافه او حذف على 
+    
+set1.add("Rand")
+print(set1) #{1, 2, 3, 'Rand', 'raja'} add elemant in set
+
+set2 = set1 # The process of equating a set, regardless of whether it is modified to set1 or set2, adds the same elements to them
+
+set1.add("123456") # add set1 and set2 ("123456")
+set2.add("S2") #  add set2 and set1 ("123456")
+print(set1) # {1, 2, 3, 'S2', 'Rand', '123456', 'raja'}
+print(set2) # {1, 2, 3, 'S2', 'raja', '123456', 'Rand'}
+
+print(10*"-","set.copy",10*"-")
+
+set3 = set1.copy() # The process of equating a set, Each set is modified independently
+print(set3) # {1, 2, 3, 'raja', 'S2', '123456', 'Rand'}
+set3.add("333333333")
+
+print("set1 = ",set1) # {1, 2, 3, '123456', 'S2', 'Rand', 'raja'}
+print("set3 = ",set3) # {'Rand', 1, 2, 3, '333333333', '123456', 'raja', 'S2'}
+
+
+
+
+
+
+
+
+
+
+    
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
+
+
+
 '''def createN (s1,s2):
     if len(s1)%2 == 0:
         return s1[:int(len(s1)/2)] + s2
@@ -636,6 +727,8 @@ convert(s1)'''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
+#----------------midProjct----------------
+
 '''print(30 * "-", "Welcome to FasterTaxi", 30 * "-")
 
 while True:
@@ -687,7 +780,7 @@ while True:
 
 
 
-
+'''
 print(30 * "-", "Welcome to FasterTaxi", 30 * "-")
 
 while True:
@@ -772,6 +865,9 @@ while True:
         break
     else:
         print("Invalid input. Please enter 1 for Taxi or 2 for Shared transfer.")
+'''
+
+
 
 
 
