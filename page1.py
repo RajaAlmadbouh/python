@@ -610,8 +610,13 @@ print(studant.items()) #dict_items([('name', 'Raja'), ('Age', 19), ('Marks', [50
 for i in range(len(studant["Marks"])) : 
     print(studant["Marks"][i])
 
+for key,value in studant.items():
+    print(key," : ",value)
 
+print("-------------------------------")
 
+for key in studant.keys():
+    print("Key = ",key)
 
 
 
