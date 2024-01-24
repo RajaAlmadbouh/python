@@ -1066,6 +1066,7 @@ while True:
 
                     if 1 <= int(chooseCar) <= len(places[chooseUser]):
                         chosseCarInfo = places[chooseUser][int(chooseCar) - 1]
+                        
                         print("\nChosen Car Information:")
                         print("Car Type             :", chosseCarInfo[0])
                         print("Driver               :", chosseCarInfo[1])
