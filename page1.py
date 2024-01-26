@@ -691,15 +691,17 @@ while True:
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 '''----------------------pandars----------------------'''
-
+import numpy as np
 
 
 
 
 studant = ["Raja" , "Zekoo" , "Osama" , "Sharaf" , "Ghith"]
+studantArray = np.array(studant)
 
 
-print(studant)
+print(studantArray)
+
 
 
 
