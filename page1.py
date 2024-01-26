@@ -618,7 +618,7 @@ print("-------------------------------")
 for key in studant.keys():
     print("Key = ",key)'''
 
-print("-------------------------------Task")
+#print("-------------------------------Task")
 
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -689,6 +689,26 @@ while True:
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''----------------------pandars----------------------'''
+
+
+
+
+
+studant = ["Raja" , "Zekoo" , "Osama" , "Sharaf" , "Ghith"]
+
+
+print(studant)
+
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+
 
 
 
@@ -892,7 +912,7 @@ while True:
 
 
 
-import random
+'''import random
 print(30 * "-", "Welcome to FasterTaxi", 30 * "-")
 
 while True:
@@ -1112,7 +1132,8 @@ while True:
                 print("Invalid input. Please enter crrouct ID number of car.")
         break
     else:
-        print("Invalid input. Please enter 1 for Taxi or 2 for Shared transfer.")
+        print("Invalid input. Please enter 1 for Taxi or 2 for Shared transfer.")'''
+
 
 
 
