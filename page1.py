@@ -693,14 +693,112 @@ while True:
 '''----------------------pandars----------------------'''
 import numpy as np
 
-
-
-
 studant = ["Raja" , "Zekoo" , "Osama" , "Sharaf" , "Ghith"]
 studantArray = np.array(studant)
 
-
 print(studantArray)
+print(type(studantArray))
+
+print("-"*50)
+
+import pandas as pd
+studantPandas = pd.Series(studant)
+
+print(studantPandas)
+print(type(studantPandas))
+
+print("-"*50,"List")
+
+mark = [ 45.5 , 65.8 , 34.6 , 98.5 , 34.7 ]
+name = [ "python" , "OOP" , "Cal" , "DataManing" , "IS"]
+
+markList = []
+for i in mark:
+    markList.append(int(i))
+
+print(markList)
+
+markList2 = [int(i) for i in mark]
+
+print(markList2)
+
+print("-"*50)
+
+markS = pd.Series(markList2)
+print(markS)
+markS = pd.Series(markList2 , index=name)
+print(markS)
+
+print("-"*50,"Dictionary")
+
+dict1 = {"python" : markList2[0] , "OOP" : markList2[1] ,"Cal" : markList2[2] ,
+         "DataManing" : markList2[3] ,"IS" : markList2[4] }
+dictS = pd.Series(dict1)
+print(dictS)
+
+print("-"*50,"Method Padnas")
+
+grade = [ 44.5 , 34.4 ,  76.8 , 99.4 , 99.4]
+nameGrade = ["c++" , "c#" , "Cal2" , "DataStrcure" , "DSS"]
+gradeS = pd.Series(grade , index = nameGrade)
+print(gradeS)
+print("-"*25)
+
+print(gradeS.value_counts())
+print("-"*25)
+
+print(gradeS.dtype)
+print("-"*25)
+
+print(gradeS.unique)
+print("-"*25)
+
+print(gradeS.mean())
+print("-"*25)
+
+print(gradeS.max())
+print("-"*25)
+
+print(gradeS.min())
+print("-"*25)
+
+print(gradeS.sum())
+print("-"*25)
+
+print(gradeS.product())
+print("-"*25)
+
+print(gradeS.count())
+print("-"*25)
+
+print(gradeS.shape)
+print("-"*25)
+
+print(gradeS.describe())
+print("-"*25)
+
+print(gradeS.index)
+print("-"*25)
+
+print(gradeS.values)
+print("-"*25)
+
+print(gradeS.sort_index())
+print("-"*25)
+
+print(gradeS.sort_values())
+print("-"*25)
+
+print(gradeS.sort_values(ascending=False))
+print("-"*25)
+
+print(gradeS)
+gradeS.sort_values(ascending=False , inplace=True)
+print(gradeS)
+print("-"*25)
+
+
+
 
 
 
