@@ -691,7 +691,7 @@ while True:
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 '''----------------------pandars----------------------'''
-import numpy as np
+'''import numpy as np
 
 studant = ["Raja" , "Zekoo" , "Osama" , "Sharaf" , "Ghith"]
 studantArray = np.array(studant)
@@ -795,23 +795,12 @@ print("-"*25)
 print(gradeS)
 gradeS.sort_values(ascending=False , inplace=True)
 print(gradeS)
-print("-"*25)
-
-
-
-
-
+print("-"*25)'''
 
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-
-
-
-
-
 
 
 '''def createN (s1,s2):
