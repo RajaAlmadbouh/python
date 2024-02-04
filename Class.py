@@ -24,7 +24,11 @@ print("Name : ",Stu.Name)
 print("Track : ",Stu.Track)
 print("Email : ",Stu.Email)'''
 
-studant = { "Name" : ["Raja" , "Osama" , "Ghith" ] , 
+''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''studant = { "Name" : ["Raja" , "Osama" , "Ghith" ] , 
             "Major" : ["CIS" , "Markting" , "CS"] }
 
 class stuff():
@@ -51,3 +55,35 @@ class stuff():
 oop = stuff("Omar","manager",1,"12345",["OOP"])
 oop.showStudant(studant)
 oop.addCorsues(["IS","Clacules 2","C++"])
+'''
+
+''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''
+
+class GradeBook():
+    Grade = {}
+
+    def __init__(self,grade):
+        self.Grade = grade
+
+    def addStudant(self,name,grade):
+        self.Grade[name] = grade
+
+    def reportGrade(self,name):
+        score = 0
+        for val in self.Grade[name]:
+            score += val
+        if score == 0:
+            print("This studant is not Exist")
+        else:
+            print(f"score {self.Grade[name]}= {score}")
+    
+    def avargeGrade(self):
+        avg = 0 
+        for item in self.Grade.values():
+            for i in item:
+                avg += i
+        
+        return avg/len(self.Grade)
+    

@@ -42,7 +42,7 @@ for key, value in dict1.items():
 
 ##################### Problem Solving Q4 #####################
 
-def getTopThree(dict1):
+'''def getTopThree(dict1):
     list1 = []
 
     for i in dict1.values():
@@ -55,7 +55,7 @@ def getTopThree(dict1):
                 print(f"{key} {value}")
 
 dict1 = {'item1': 45.50, 'item2': 35, 'item3': 41.30, 'item4': 55, 'item5': 24}
-getTopThree(dict1)
+getTopThree(dict1)'''
 
 ##################### Problem Solving Q5 #####################
 
