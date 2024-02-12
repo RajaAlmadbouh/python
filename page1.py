@@ -813,6 +813,126 @@ print("-"*25)'''
 
 
 
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+'''---------------------- Overloading ----------------------'''
+
+'''#Overloading Arithmetic Operators
+
+class point:
+
+    def __init__(self,x=0,y=0):
+        self.X = x
+        self.Y = y
+
+    def move (self,addX=0 ,addY=0):
+        self.X += addX
+        self.Y += addY
+    
+    def __str__(self):
+        return f"{self.X} , {self.Y}"
+    
+    def __add__(self,OOpject): #OOpject (Lt is a opject from a class point i can put them together)
+        self.X += OOpject.X
+        self.Y += OOpject.Y
+    
+    def __iadd__(self,OOpject):
+        self.X += OOpject.X
+        self.Y += OOpject.Y  
+        return self
+    
+    def __neg__(self):
+        p3 = point()
+        p3.X = self.X * -1
+        p3.Y = self.Y * -1
+        return p3
+    
+    def __invert__(self):
+        p3 = point()
+        p3.X = self.Y
+        p3.Y = self.X
+        return p3
+    
+
+p1 = point(4,7)
+p2 = point(6,3)
+
+    
+print(p1)
+#p1.move(4,3)
+#print(p1+p2) #It is not permissible to collect Opject to Opject except by Overloading massege error TypeError: unsupported operand type(s) for +: 'point' and 'point'
+p1 + p2
+print(p1)
+
+p1 += p2 # __iadd__
+print(p1)
+
+print(-p1)#__neg__
+print(~p1)#__invert__
+
+                                               #--------------Note--------------
+# __add__() => +
+# __sub__() => -
+# __mul__() => *
+# __div__() => /
+# __mod__() => %
+# __po__() => ** power
+# __lt__() => <  less than
+# __gt__() => >  grater than
+# __le__() => <= less than or equal to
+# __gr__() => >=  grater than or equal to
+# __eq__() => ==  equality check
+# __gt__() => !=  inequality check
+'''
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+
+'''---------------------- Inheritance in oop ----------------------'''
+
+
+'''class BankAccount(object):
+    def __init__(self , balance=0):
+        self.Balance = balance
+
+    def withdraw(self , amount):
+        if amount > self.Balance:
+            return f"you have do not {amount} in your account you have {self.Balance}"
+        else:
+            self.Balance -= amount
+            return f"your balance now is {self.Balance}"
+
+    def deposit(self , amount):
+        self.Balance += amount
+        return f"your balance now is {self.Balance}"
+
+class MinimumBalanceAccount(BankAccount):
+
+    def __init__(self, balance=0,minBalance=0):
+        super().__init__(balance)
+        self.MinimumBalance = minBalance
+    
+    def withdraw(self , amount):
+        if self.Balance - amount < self.MinimumBalance:
+            return f"sorry you can not this amount"
+        else:
+            return(BankAccount.withdraw(self,amount))
+
+
+acc = BankAccount(500)
+print(acc.Balance)
+
+print(acc.withdraw(1000))'''
+
+
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 
 '''def createN (s1,s2):
     if len(s1)%2 == 0:
