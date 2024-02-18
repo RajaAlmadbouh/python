@@ -1,67 +1,30 @@
-import tkinter as tk
-from tkinter import ttk
-from tkinter.messagebox import showinfo
+class User():
+    def __init__(self,name,pas):
+        self.Name = name
+        self._Password =pas
+    def __str__(self):
+        return f"UserName : {self.Name} \n "
+    def getPassword(self):
+        return self._Password
+    def setPassword(self,newPassword):
+        self._Password = newPassword
 
-def clear_UI():
-    email_label.destroy()
-    email_entry.destroy()
-    password_label.destroy()
-    password_entry.destroy()
-    login_button.destroy()
-
-
-def login_clicked():
-    msg = f"Your Email: {email.get()}\nPassword: {password.get()}"
-
-    if email.get() == "R" and password.get() == "12345":
-        showinfo(title="Information", message=msg)
-        #root.attributes('-fullscreen', False)# Make the window fullscreen
-        getEmail = email.get()
-        userName = getEmail.split("@")[0]
-        clear_UI()
-        userNameLabel = ttk.Label(root,text=f"User Name : {userName}")
-        userNameLabel.pack()
-
-        noteApp = "This program is characterized by a variety of wonderful services and reasonable prices"
-        noteLable = ttk.Label(root,text=noteApp,padding=(10, 10))
-        noteLable.pack(padx=10, pady=10, fill='x', expand=True)
-
-        root.geometry(f"{root.winfo_screenwidth()}x{root.winfo_height()}++")
-
-    else:
-        showinfo(title="Information", message="Invalid Email Or Password")
+class captain(User):
+    def __init__(self,typeCar,name,plate,phone):
+        self.TypeCar = typeCar
+        self.Name = name
+        self.Plate = plate
+        self.Phone = phone
+    def __str__(self):
+        return f"Car Type: {self.TypeCar}, Name: {self.Name}, Plate Number: {self.Plate}, Contact Number: {self.Phone}"
+    
+CaptainData = [] # data opject in class captain
 
 
-#---------------------Main----------------------
-root = tk.Tk()
-root.title('FasterTaxi')
-root.geometry("600x400+50+50")
+C1 = captain("Toyota Avalon", "Raja Almadbouh", "80081", "0796329390")
+C2 = captain("Chevrolet Menlo", "Montasr Asmer", "17785", "0772182104")
+print(C2.getPassword())
 
-email = tk.StringVar()
-password = tk.StringVar()
-
-signin = ttk.Frame(root)
-signin.pack(padx=10, pady=10, fill='x', expand=True)
-
-email_label = ttk.Label(signin, text="Email:")
-email_label.pack(fill='x', expand=True)
-
-email_entry = ttk.Entry(signin, textvariable=email)
-email_entry.pack(fill='x', expand=True)
-email_entry.focus()
-
-password_label = ttk.Label(signin, text="Password:")
-password_label.pack(fill='x', expand=True)
-
-password_entry = ttk.Entry(signin, textvariable=password, show="*")
-password_entry.pack(fill='x', expand=True)
-
-
-
-login_button = ttk.Button(signin, text="Login", command=login_clicked)
-login_button.pack(fill='x', expand=True, pady=10)
-
-# After Login User
-root.mainloop()
-
-
+CaptainData.append(C1)
+CaptainData.append(C2)
+    
