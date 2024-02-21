@@ -1,4 +1,102 @@
-import tkinter as tk
+class User():
+    def __init__(self,name,pas,sp):
+        self.Name = name
+        self._Password =pas
+        if sp not in {"A", "C", "U"}:
+            raise ValueError("Invalid input. Service provider must be A (Admin), C (Captain), or U (User).")
+        self.SP = sp
+        
+         
+    def __str__(self):
+        return f"UserName : {self.Name} \nPassword : {self.getPassword()} \nService provider : {self.SP}"
+    
+    def getPassword(self):
+        return self._Password
+    
+    def setPassword(self,newPassword):
+        self._Password = newPassword
+    
+    def create_captain_instance(self):
+        self.TypeCar = input("Enter car type: ")
+        self.Plate = input("Enter plate number: ")
+        self.Phone = input("Enter contact number: ")
+
+class captain(User):
+    def __init__(self, name, pas, sp, typeCar, plate, phone):
+        super().__init__(name, pas, sp)
+        self.TypeCar = typeCar
+        self.Plate = plate
+        self.Phone = phone
+        self.addUserData()
+
+    def addUserData(self):
+        # Check if a user with the same name already exists in UserData
+        for existing_user in UserData:
+            if existing_user.Name == self.Name:
+                print(f"This User ({self.Name}) is already in the database. Cannot add.")
+                return 
+        
+        new_user = User(self.Name, self._Password, self.SP)
+        UserData.append(new_user)
+
+    def __str__(self):
+        return f"Car Type: {self.TypeCar}, Name: {self.Name}, Plate Number: {self.Plate}, Contact Number: {self.Phone}"
+
+
+try:  
+    CaptainData = [] # data object in class captain
+    UserData = [] # data object in class User
+
+    C1 = captain("Raja Almadbouh", "123456", "C", "Toyota Avalon", "80081", "0796329390") # Captain Information 
+    CaptainData.append(C1)  # add C1 to list (CaptainData)
+    C2 = captain("Montasr Asmer", "123456", "C", "Chevrolet Menlo", "17785", "0772182104")
+    CaptainData.append(C2)
+
+    C3 = captain("Raja Almadbouh", "123456", "C", "Toyota Avalon", "80081", "0796329390") # Captain Information 
+    CaptainData.append(C3)
+
+    """U1 = User(C1.Name, C1.getPassword(), "C") # User Information 
+    UserData.append(U1) # add C1 to list (UserData)
+    U2 = User(C2.Name, C2.getPassword(), "C")
+    UserData.append(U2)"""
+    U3 = User("Rand", "123456", "U")
+    UserData.append(U3)
+    U4 = User("Mohammed", "123456", "U")
+    UserData.append(U4)
+    U5 = User("Admin", "123456", "A")
+    UserData.append(U5)
+    U6 = User("Sabah", "123456", "C")
+    UserData.append(U6)
+except ValueError as e:
+    print(e)
+
+i = 0
+print("User"*20,"User")
+for user in UserData:
+    i += 1
+    print(f"{i}. {user}")
+
+print("Captain"*20,"Captain")
+j = 0
+for c in CaptainData:
+    j += 1
+    print(f"{j}. {c}")
+
+
+print("####################################")
+
+
+
+
+
+
+
+
+
+
+
+
+"""import tkinter as tk
 from tkinter import messagebox
 
 #-----------------------------Class-----------------------------
@@ -135,9 +233,9 @@ def ModifyUserNameData(UserNameModify):
                 print("Service Provider:", user.SP)
 
                 print("---------------------------------")
-                print("""Note  :  
+                print(""""""Note  :  
                       Each attribute will be modified
-                      , but if you do not want to modify a specific attribute, press (Enter) :""" )
+                      , but if you do not want to modify a specific attribute, press (Enter) :"""""" )
 
                 NewName = input("Enter new username: ")
                 NewPass = input("Enter new password: ")
@@ -229,7 +327,16 @@ def AdminPage():
 
         elif choice == "4":
             # Implement deletion of user
-            pass
+            UserNameDelete = input("Enter UserName delete : ")
+            ExistUserDel = False
+            
+            for User in UserData:
+                if User.Name == UserNameDelete:
+                    UserData.remove(User)
+                    ExistUserDel = True
+                    print(f"Done delete {User.Name}   {User.SP}")
+            if not ExistUserDel:
+                print(f"This user ({UserNameDelete}) is not exist")
         elif choice == "0":
             break
         else:
@@ -296,3 +403,152 @@ except ValueError as e:
 
 
 MainFunction()
+
+
+"""
+
+
+
+
+
+
+
+
+
+
+"""def InformtionUser():
+
+        AddUserWindow = tk.Toplevel(root)
+        AddUserWindow.title("Informtion User")
+
+        # Function to display all users
+        def view_all_users():
+            
+            output_text.delete(1.0, tk.END)
+            output_text.insert(tk.END, "Information Users:\n")
+            output_text.insert(tk.END, "UserName\tPassword\tServiceProvider\n")
+            for user in UserData:
+                output_text.insert(tk.END, f"{user.Name.ljust(20)}{user.getPassword().ljust(10)}{user.SP}\n")
+
+
+        def modify_user_data():
+            new_name_label = tk.Label(root, text="Enter new username:")
+            new_name_label.pack()
+            new_name_entry = tk.Entry(root, textvariable=new_name)
+            new_name_entry.pack()
+
+            new_pass_label = tk.Label(root, text="Enter new password:")
+            new_pass_label.pack()
+            new_pass_entry = tk.Entry(root, textvariable=new_pass)
+            new_pass_entry.pack()
+
+            new_sp_label = tk.Label(root, text="Enter new service provider:")
+            new_sp_label.pack()
+            new_sp_entry = tk.Entry(root, textvariable=new_sp)
+            new_sp_entry.pack()
+            # Function to modify user data
+            username = username_entry.get()
+            new_name_val = new_name.get()
+            new_pass_val = new_pass.get()
+            new_sp_val = new_sp.get()
+            ModifyUserNameData(username, new_name_val, new_pass_val, new_sp_val)
+            
+
+        def add_new_user():
+        # Function to add new user
+            add_window = tk.Toplevel(root)
+            add_window.title("Add New User")
+
+            new_username_label = tk.Label(add_window, text="Enter new username:")
+            new_username_label.pack()
+            new_username_entry = tk.Entry(add_window)
+            new_username_entry.pack()
+
+            new_password_label = tk.Label(add_window, text="Enter new password:")
+            new_password_label.pack()
+            new_password_entry = tk.Entry(add_window)
+            new_password_entry.pack()
+
+            new_sp_label = tk.Label(add_window, text="Enter service provider (A for Admin, C for Captain, U for User):")
+            new_sp_label.pack()
+            new_sp_entry = tk.Entry(add_window)
+            new_sp_entry.pack()
+
+            def add_user():
+                print("Add New User")
+                while True:
+                    new_username = new_username_entry.get()
+                    new_password = new_password_entry.get()
+                    new_sp = new_sp_entry.get()
+
+                    # Check if username already exists
+                    exist_user = any(user.Name == new_username for user in UserData)
+                    if exist_user:
+                        messagebox.showerror("Error", "This user exists and cannot be added")
+                        return
+
+                    # Create new user and append to UserData list
+                    try:
+                        new_user = User(new_username, new_password, new_sp)
+                        UserData.append(new_user)
+                        messagebox.showinfo("Success", "User added successfully!")
+                        view_all_users()  # Refresh the displayed user list
+                        add_window.destroy()
+                        break
+                    except ValueError as e:
+                        messagebox.showerror("Error", f"Error: {e}")
+                        return
+            
+            add_button = tk.Button(add_window, text="Add User", command=add_user)
+            add_button.pack()
+
+        # Function to delete a user
+        def delete_user():
+            username_delete = username_delete_entry.get()
+            deleted = False
+            for user in UserData:
+                if user.Name == username_delete:
+                    UserData.remove(user)
+                    messagebox.showinfo("Success", f"User '{username_delete}' deleted successfully!")
+                    view_all_users()  # Refresh the displayed user list
+                    deleted = True
+                    break
+            if not deleted:
+                messagebox.showerror("Error", f"User '{username_delete}' not found.")
+
+        # Function to Back to Admin page and close the window
+        def Back():
+            root.destroy()
+            AdminPage()
+
+
+        # Create GUI elements
+        view_button = tk.Button(root, text="View all users", command=view_all_users)
+        view_button.pack()
+
+        username_label = tk.Label(root, text="Enter username to modify:")
+        username_label.pack()
+        username_entry = tk.Entry(root)
+        username_entry.pack()
+
+        ###################################
+
+        modify_button = tk.Button(root, text="Modify user data", command=modify_user_data)
+        modify_button.pack()
+
+        add_button = tk.Button(root, text="Add new user", command=add_new_user)
+        add_button.pack()
+
+        username_delete_label = tk.Label(root, text="Enter username to delete:")
+        username_delete_label.pack()
+        username_delete_entry = tk.Entry(root)
+        username_delete_entry.pack()
+
+        delete_button = tk.Button(root, text="Delete user", command=delete_user)
+        delete_button.pack()
+
+        Back_button = tk.Button(root, text="Log Out", command=Back)
+        Back_button.pack()
+
+        output_text = tk.Text(root, height=10, width=50)
+        output_text.pack()"""
