@@ -1,4 +1,153 @@
-class User():
+import tkinter as tk
+from tkinter import ttk
+from tkinter import messagebox
+
+def UserPage():
+    # Create the tkinter window
+    UserP = tk.Tk()
+    UserP.title("Page User")
+    UserP.geometry("800x600")
+
+    kelo = 0.2
+    time = 0.05
+
+    # this function service Taxi
+    def Taxi(kelo,time):
+        taxiLabel = ttk.Label(UserP, text="You can choose the type of service : ", style="TLabel")
+        taxiLabel.grid(row=0, column=0)
+
+        
+
+    # Style for labels
+    style = ttk.Style()
+    style.configure("TLabel", font=("Helvetica", 14), padding=10)
+
+    serLabel = ttk.Label(UserP, text="You can choose the type of service : ", style="TLabel")
+    serLabel.grid(row=0, column=0)
+
+    # Style for buttons
+    style.configure("TButton", padding=10, relief="flat", font=("Helvetica", 12))
+    style.map("TButton",
+              foreground=[('active', 'blue'), ('pressed', 'red')],
+              background=[('active', 'white'), ('pressed', 'white')])
+
+    serTaxiButton = ttk.Button(UserP, text="Taxi", command=lambda:Taxi(kelo,time))
+    serTaxiButton.grid(row=2, column=1, pady=10)
+
+    serTaxiButton = ttk.Button(UserP, text="Shared Transfer", command="")
+    serTaxiButton.grid(row=2, column=2, pady=10)
+    
+    # Run the tkinter event loop
+    UserP.mainloop()
+
+
+UserPage()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""import tkinter as tk
+from math import sqrt
+
+def calculate_distance(start_point, end_point):
+    # Assuming start_point and end_point are tuples (x, y) representing Cartesian coordinates
+    distance = sqrt((end_point[0] - start_point[0])**2 + (end_point[1] - start_point[1])**2)
+    return distance
+
+def UserPage():
+    def calculate_distance_and_display():
+        start_x = float(start_x_entry.get())
+        start_y = float(start_y_entry.get())
+        end_x = float(end_x_entry.get())
+        end_y = float(end_y_entry.get())
+
+        start_point = (start_x, start_y)
+        end_point = (end_x, end_y)
+
+        distance = calculate_distance(start_point, end_point)
+        distance_label.config(text=f"Distance: {distance:.2f} units")
+
+    # Create the tkinter window
+    UserP = tk.Tk()
+    UserP.title("User Page")
+
+    # Create entry widgets for start and end points
+    start_x_label = tk.Label(UserP, text="Start Point X:")
+    start_x_label.grid(row=0, column=0)
+    start_x_entry = tk.Entry(UserP)
+    start_x_entry.grid(row=0, column=1)
+
+    start_y_label = tk.Label(UserP, text="Start Point Y:")
+    start_y_label.grid(row=1, column=0)
+    start_y_entry = tk.Entry(UserP)
+    start_y_entry.grid(row=1, column=1)
+
+    end_x_label = tk.Label(UserP, text="End Point X:")
+    end_x_label.grid(row=2, column=0)
+    end_x_entry = tk.Entry(UserP)
+    end_x_entry.grid(row=2, column=1)
+
+    end_y_label = tk.Label(UserP, text="End Point Y:")
+    end_y_label.grid(row=3, column=0)
+    end_y_entry = tk.Entry(UserP)
+    end_y_entry.grid(row=3, column=1)
+
+    # Button to calculate distance
+    calculate_button = tk.Button(UserP, text="Calculate Distance", command=calculate_distance_and_display)
+    calculate_button.grid(row=4, column=0, columnspan=2)
+
+    # Label to display the calculated distance
+    distance_label = tk.Label(UserP, text="")
+    distance_label.grid(row=5, column=0, columnspan=2)
+
+    # Run the tkinter event loop
+    UserP.mainloop()
+
+# Call UserPage to demonstrate
+UserPage()
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""class User():
     def __init__(self,name,pas,sp):
         self.Name = name
         self._Password =pas
@@ -55,10 +204,7 @@ try:
     C3 = captain("Raja Almadbouh", "123456", "C", "Toyota Avalon", "80081", "0796329390") # Captain Information 
     CaptainData.append(C3)
 
-    """U1 = User(C1.Name, C1.getPassword(), "C") # User Information 
-    UserData.append(U1) # add C1 to list (UserData)
-    U2 = User(C2.Name, C2.getPassword(), "C")
-    UserData.append(U2)"""
+    
     U3 = User("Rand", "123456", "U")
     UserData.append(U3)
     U4 = User("Mohammed", "123456", "U")
@@ -87,7 +233,7 @@ print("####################################")
 
 
 
-
+"""
 
 
 

@@ -1,24 +1,25 @@
-``import tkinter as tk
+import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
-from PIL import Image, ImageTk
+
+
+
+
 
 
 #-----------------------------Class-----------------------------
 class User():
     def __init__(self,name,pas,sp):
-        self.Name = name#self.chickName(name)
+        if not name:
+            raise ValueError("Name cannot be empty.")
+        self.Name = name
+        if not pas:
+            raise ValueError("Password cannot be empty.")
         self._Password =pas
         if sp not in {"A", "C", "U"}:
             raise ValueError("Invalid input. Service provider must be A (Admin), C (Captain), or U (User).")
         self.SP = sp
     
-    """def chickName(self,name):
-        for U in UserData:
-            if U.Name == name:
-                print(f"This User :: ({name}) is exist in DataBase , can not add")
-                return None
-        return name"""
          
     def __str__(self):
         return f"UserName : {self.Name} \n Password : {self.getPassword()}"
@@ -53,7 +54,6 @@ class captain(User):
 
 #-----------------------------Function-----------------------------
 # This function LogIn Page
-    
 def create_login_interface():
     # Create main tkinter window
     root = tk.Tk()
@@ -78,9 +78,9 @@ def create_login_interface():
     password_entry.grid(row=1, column=1)
 
     def login_and_destroy():
-        nonlocal username_var, password_var  # Use nonlocal keyword to update outer scope variables
-        #username = username_var.get()
-        #password = password_var.get()
+        # Update StringVars with entered username and password
+        username_var.set(username_entry.get())
+        password_var.set(password_entry.get())
         root.destroy()  # Close the tkinter window
 
     # Login button
@@ -90,11 +90,13 @@ def create_login_interface():
     # Run the tkinter event loop
     root.mainloop()
 
+    print(username_var.get(),"/////////////", password_var.get())
+
     # Return the entered username and password
     return username_var.get(), password_var.get()
-
    
 
+# This function Register Page Follow the Admin Page
 def create_registration_interface():
     root = tk.Tk()
     root.title("Registration")
@@ -144,6 +146,8 @@ def create_registration_interface():
     # Run the tkinter event loop
     root.mainloop()
 
+
+# This function Modify User Page
 def ModifyUserNameData(UserNameModify, NewName, NewPass, NewSP):
     ExistUser = False 
     for User in UserData:
@@ -188,6 +192,7 @@ def ModifyUserNameData(UserNameModify, NewName, NewPass, NewSP):
         messagebox.showerror("Error", "The username does not exist.")
 
 
+# This function Admin Page
 def AdminPage():
 
     root = tk.Tk()
@@ -573,6 +578,106 @@ def AdminPage():
     root.mainloop()
     
 
+# This function User Page
+def UserPage():
+    # Create the tkinter window
+    UserP = tk.Tk()
+    UserP.title("Page User")
+    UserP.geometry("800x600")
+
+    # Function to display screen with the "Taxi" and "Shared Transfer" buttons
+    def display_initial_screen():
+        # Clear previous widgets in the main window
+        for widget in UserP.winfo_children():
+            widget.destroy()
+    
+
+    # this function service Taxi
+    def Taxi():
+        # Clear previous widgets in the main window
+        for widget in UserP.winfo_children():
+            widget.destroy()
+
+        
+        style.configure("TLabel", font=("Helvetica", 14), padding=10)
+
+        # Label for choosing the type of car
+        taxi_label = ttk.Label(UserP, text="Choose the type of car you prefer : ", style="TLabel")
+        taxi_label.grid(row=0, column=0)
+
+        # Iterate through available car types and create buttons for each
+        for i, car in enumerate(CaptainData): #enumerate is useful for obtaining an indexed list
+            type_car = car.TypeCar
+            car_button = ttk.Button(UserP, text=type_car, command=lambda car=car: carTaxi(car))
+            car_button.grid(row=i+1, column=0, pady=5)
+        
+        back_button = ttk.Button(UserP, text="<-- Back", command=backPageUser) # def UasrPage (back)
+        back_button.grid(row=len(CaptainData)+1, column=0, pady=5)
+
+    def backPageUser(): # back Page User
+        UserP.destroy()
+        UserPage()
+
+    """def backPageService(): # back page service
+        UserP.destroy()
+        Taxi()"""
+
+    # Function car (opject captain) type follow in Taxi() function
+    def carTaxi(car):
+        for widget in UserP.winfo_children():
+            widget.destroy()
+
+
+        print("Car Type : ", car.TypeCar , "\t Name Captin : " , car.Name )
+        print("Phone : ", car.Phone)
+        typeLabel = ttk.Label(UserP, text=f"Car Type : {car.TypeCar}", style="TLabel")
+        typeLabel.grid(row=0, column=0)
+
+        nameLabel = ttk.Label(UserP, text=f"Name Captain : {car.Name}", style="TLabel")
+        nameLabel.grid(row=0, column=1)
+
+        phoneLabel = ttk.Label(UserP, text=f"Phone : {car.Phone}", style="TLabel")
+        phoneLabel.grid(row=0, column=2)
+
+        doLabel = ttk.Label(UserP, text=f"Do you want : \n ", style="TLabel")
+        doLabel.grid(row=1, column=0)
+
+        backButton = ttk.Button(UserP, text="Open flight", command="")
+        backButton.grid(row=2, column=1, pady=5)
+        backButton = ttk.Button(UserP, text="trip (repel reply)", command="backPageUser")
+        backButton.grid(row=3, column=1, pady=5)
+
+        # Button Back UserPage 
+        backButton = ttk.Button(UserP, text="<-- Back", command=backPageUser)
+        backButton.grid(row=1, column=2, pady=5)
+    
+    # Style for labels
+    style = ttk.Style()
+    style.configure("TLabel", font=("Helvetica", 14), padding=10)
+
+    serLabel = ttk.Label(UserP, text="You can choose the type of service : ", style="TLabel")
+    serLabel.grid(row=0, column=0)
+
+    # Style for buttons
+    style.configure("TButton", padding=10, relief="flat", font=("Helvetica", 12))
+    style.map("TButton",
+              foreground=[('active', 'blue'), ('pressed', 'red')],
+              background=[('active', 'white'), ('pressed', 'white')])
+    
+
+    
+    # Services in this Page
+    serTaxiButton = ttk.Button(UserP, text="Taxi", command=Taxi)
+    serTaxiButton.grid(row=2, column=1, pady=10)
+
+    serTaxiButton = ttk.Button(UserP, text="Shared Transfer", command="")
+    serTaxiButton.grid(row=2, column=2, pady=10)
+    
+    
+    # Run the tkinter event loop
+    UserP.mainloop()
+
+
 #----------------------------Main Function----------------------------
 
 def MainFunction():
@@ -583,8 +688,8 @@ def MainFunction():
     
     style = ttk.Style(Main)
 
-    """def close_main_window():
-        Main.destroy()"""
+    def close_main_window():
+        Main.destroy()
     
     # Configure the style for labels
     style.configure("TLabel", foreground="blue", font=("Helvetica", 12))
@@ -597,7 +702,7 @@ def MainFunction():
     welcome_label.pack(pady=10)
 
     # Schedule closing of the main window after 4 seconds
-    #Main.after(4000, close_main_window)
+    Main.after(4000, close_main_window)
 
     # Variable to count login attempts
     numChoose = 0
@@ -606,6 +711,8 @@ def MainFunction():
         username, password = create_login_interface()
         numChoose += 1
         user_found = False
+
+        
 
         # Assume UserData is a placeholder list
         #UserData = []  # Placeholder list
@@ -619,9 +726,10 @@ def MainFunction():
                     print("Captain")
                 elif data.SP == "U":
                     print("User")
+                    UserPage()
                 break
         
-        if not user_found:
+        """if not user_found:
             print("User not found or invalid username/password")
             if numChoose == 3:
                 print("Please register : ")
@@ -629,9 +737,10 @@ def MainFunction():
                 create_registration_interface()
                 break
         else:
-            break
+            break"""
 
-    Main.mainloop()
+        Main.mainloop()
+        break
 
 
 #-----------------------------Main-----------------------------
@@ -640,21 +749,18 @@ try:
     CaptainData = [] # data opject in class captain
     UserData = [] #data opject in class User
  
-
+    
     C1 = captain("Raja Almadbouh", "123456" , "C" ,"Toyota Avalon", "80081", "0796329390") # Captain Information 
     CaptainData.append(C1)  # add C1 to list (CaptainData)
     C2 = captain( "Montasr Asmer" , "123456" , "C" , "Chevrolet Menlo", "17785", "0772182104")
     CaptainData.append(C2)
-
-
- 
     C3 = captain( "Ahmad Asmer" , "123456" , "C" , "Chevrolet Menlo", "17785", "0772182104")
     CaptainData.append(C3)
 
-    """U1 = User(C1.Name,C1.getPassword(),"C") # User Information 
-    UserData.append(U1) # add C1 to list (UsernData)
-    U2 = User(C2.Name,C2.getPassword(),"C")
-    UserData.append(U2)"""
+    U1 = User("U","12","U")
+    UserData.append(U1)
+    U2 = User("Zeko","123456","U")
+    UserData.append(U2)
     U3 = User("Rand","123456","U")
     UserData.append(U3)
     U4 = User("Mohammed","123456","U")
@@ -668,4 +774,3 @@ except ValueError as e:
 
 
 MainFunction()
-``
